@@ -3,8 +3,8 @@ kind: Pod
 metadata:
  name: web
   labels:
-    name: web
-    tier: frontend
+   name: web
+   tier: frontend
 spec:
  containers:
  - name: web
