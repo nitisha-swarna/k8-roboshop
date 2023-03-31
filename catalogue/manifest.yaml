@@ -25,7 +25,7 @@ metadata:
 spec:
  selector:
    name: catalogue
-   tier: db
+   tier: app
  ports:
    - protocol: TCP
      port: 8080
