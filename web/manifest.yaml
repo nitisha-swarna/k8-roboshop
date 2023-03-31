@@ -10,6 +10,13 @@ spec:
  - name: web
    imagePullPolicy: Always
    image: nitisha2/web:k8
+   resources:
+     requests:
+       cpu: "100"
+       memory: "128Mi"
+     limits:
+       cpu: "100"
+       memory: "128Mi"
    ports:
    - containerPort: 80
 ---
