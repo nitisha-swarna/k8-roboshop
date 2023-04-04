@@ -1,35 +1,28 @@
+---
 apiVersion: v1
 kind: Pod
 metadata:
- name: mongodb
- labels:
-   name: mongodb
-   tier: db
+  name: mongodb
+  labels:
+    name: mongodb
+    tier: db
 spec:
- containers:
- - name: mongodb
-   imagePullPolicy: Always
-   image: nitisha2/mongodb:v1
-   ports:
-   - containerPort: 27017
-   resources:
-     requests:
-       cpu: "100m"
-       memory: "128Mi"
-     limits:
-       cpu: "100m"
-       memory: "128Mi"
-   
+  containers:
+  - name: mongodb
+    imagePullPolicy: Always
+    image: techworldwithsiva/mongodb:v1
+    ports:
+      - containerPort: 27017
 ---
 apiVersion: v1
 kind: Service
 metadata:
- name: mongodb
+  name: mongodb
 spec:
- selector:
-   name: mongodb
-   tier: db
- ports:
-   - protocol: TCP
-     port: 27017
-     targetPort: 27017
+  selector:
+    name: mongodb
+    tier: db
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017
