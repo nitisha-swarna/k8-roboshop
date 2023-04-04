@@ -6,7 +6,8 @@ metadata:
 data:
   ENV MYSQL_ALLOW_EMPTY_PASSWORD=yes \
     MYSQL_DATABASE=cities \
----apiVersion: v1
+---
+apiVersion: v1
 kind: Secret
 metadata:
   name: mysql-secret
