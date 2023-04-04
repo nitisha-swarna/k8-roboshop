@@ -1,3 +1,23 @@
+----
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+data:
+  ENV MYSQL_ALLOW_EMPTY_PASSWORD=yes \
+    MYSQL_DATABASE=cities \
+---apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-secret
+type: Opaque
+data:
+  username: bml0aXNoYQ==
+  password: bml0aXNoYTEyMw==    
+    
+
+
+
 ---
 apiVersion: v1
 kind: Pod
