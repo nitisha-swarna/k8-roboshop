@@ -15,7 +15,6 @@ type: Opaque
 data:
   MYSQL_USER: c2hpcHBpbmc=
   MYSQL_PASSWORD: c2VjcmV0
-    
 ---
 apiVersion: v1
 kind: Pod
@@ -29,13 +28,6 @@ spec:
   - name: mysql
     imagePullPolicy: Always
     image: nitisha2/mysql:k8
-    args: ["--secure-auth"]
-    env:
-    - name: MYSQL_ROOT_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: mysql-secret
-          key: MYSQL_ROOT_PASSWORD
     envFrom:
     - configMapRef:
         name: mysql-config
@@ -43,13 +35,6 @@ spec:
         name: mysql-secret
     ports:
       - containerPort: 3306
-    resources:
-      requests:
-        cpu: "100m"
-        memory: "128Mi"
-      limits:
-        cpu: "100m"
-        memory: "128Mi"
 ---
 apiVersion: v1
 kind: Service
@@ -61,5 +46,5 @@ spec:
     tier: db
   ports:
     - protocol: TCP
-      port: 80
+      port: 3306
       targetPort: 3306
