@@ -19,7 +19,7 @@ spec:
   containers:
   - name: payment
     imagePullPolicy: Always
-    image: nitisha2/payment:k8
+    image: nitisha2/payment:k9
     envFrom:
     - configMapRef:
         name: payment-config
