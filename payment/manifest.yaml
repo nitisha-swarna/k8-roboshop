@@ -6,7 +6,7 @@ metadata:
 data:
   CART_HOST: "cart:80"
   USER_HOST: "user"
-  AMQP_HOST: "cart:80"
+  AMQP_HOST: "rabbitmq"
 ---
 apiVersion: v1
 kind: Pod
@@ -19,7 +19,7 @@ spec:
   containers:
   - name: payment
     imagePullPolicy: Always
-    image: nitisha2/payment:k9
+    image: nitisha2/payment:k8
     envFrom:
     - configMapRef:
         name: payment-config
@@ -43,3 +43,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8080
+
